@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import classes from './Order.css';
 
@@ -32,6 +33,11 @@ const order = ( props ) => {
 			<p>Price: <strong>USD {Number.parseFloat( props.price ).toFixed( 2 )}</strong></p>
 		</div>
 	);
+};
+
+order.propTypes = {
+	ingredients: PropTypes.object.isRequired,
+	price: PropTypes.number.isRequired,
 };
 
 export default order;
