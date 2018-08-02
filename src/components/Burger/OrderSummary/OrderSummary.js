@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Aux from '../../../hoc/Auxiliary';
 import Button from '../../UI/Button/Button';
@@ -31,5 +32,12 @@ class OrderSummary extends Component {
 		);
 	}
 }
+
+OrderSummary.propTypes = {
+	ingredients: PropTypes.object.isRequired,
+	price: PropTypes.number.isRequired,
+	purchaseCancelled: PropTypes.func.isRequired,
+	purchaseContinued: PropTypes.func.isRequired,
+};
 
 export default OrderSummary;
