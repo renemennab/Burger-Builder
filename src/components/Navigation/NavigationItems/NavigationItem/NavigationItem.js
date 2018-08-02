@@ -15,7 +15,7 @@ const navigationItem = ( props ) => (
 
 navigationItem.propTypes = {
 	link: PropTypes.string.isRequired,
-	exact: PropTypes.bool.isRequired,
+	exact: PropTypes.bool,
 	children: PropTypes.node.isRequired,
 };
 
