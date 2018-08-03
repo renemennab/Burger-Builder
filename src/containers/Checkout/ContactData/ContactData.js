@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
@@ -212,6 +213,15 @@ const mapDispatchToProps = dispatch =>{
 	return {
 		onOrderBurger: (orderData, token) => dispatch(actions.purchaseBurger(orderData, token))
 	};
+};
+
+ContactData.propTypes = {
+	ings: PropTypes.object,
+	price: PropTypes.number.isRequired,
+	userId: PropTypes.string,
+	onOrderBurger: PropTypes.func.isRequired,
+	token: PropTypes.string.isRequired,
+	loading: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));
