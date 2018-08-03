@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Aux from '../../hoc/Auxiliary';
 import Burger from '../../components/Burger/Burger';
@@ -57,7 +58,7 @@ render () {
 		disabledInfo[key] = disabledInfo[key] <= 0;
 	}
 	let orderSummary = null;
-	let burger = this.props.error ? <p>Ingredients can't be loaded!</p> : <Spinner />;
+	let burger = this.props.error ? <p>Ingredients can‘t be loaded!</p> : <Spinner />;
 
 	if ( this.props.ings ) {
 		burger = (
@@ -108,6 +109,19 @@ const mapDispatchToProps = dispatch => {
 		onInitPurchase: () => dispatch(actions.purchaseInit()),
 		onSetAuthRedirectPath: (path)=> dispatch(actions.setAuthRedirectPath(path))
 	};
+};
+
+BurgerBuilder.propTypes = {
+	onInitIngredients: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired,
+	onInitPurchase: PropTypes.func.isRequired,
+	onSetAuthRedirectPath: PropTypes.func.isRequired,
+	ings: PropTypes.object,
+	onIngredientAdded: PropTypes.func.isRequired,
+	onIngredientRemoved: PropTypes.func.isRequired,
+	price: PropTypes.number.isRequired,
+	error: PropTypes.bool.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler( BurgerBuilder, axios ));
