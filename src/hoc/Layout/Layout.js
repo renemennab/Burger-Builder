@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Aux from '../Auxiliary';
 import classes from './Layout.css';
@@ -43,6 +44,11 @@ const mapStateToProps = state => {
 	return {
 		isAuthenticated: state.auth.token !== null
 	};
+};
+
+Layout.propTypes = {
+	isAuthenticated: PropTypes.bool.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default connect(mapStateToProps)(Layout);
