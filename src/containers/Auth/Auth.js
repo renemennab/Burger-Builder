@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
@@ -174,6 +175,16 @@ const mapDispatchToProps = dispatch =>{
 		onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
 		onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
 	};
+};
+
+Auth.propTypes = {
+	buildingBurger: PropTypes.bool.isRequired,
+	authRedirectPath: PropTypes.string.isRequired,
+	onSetAuthRedirectPath: PropTypes.func.isRequired,
+	onAuth: PropTypes.func.isRequired,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.bool,
+	isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Auth);
