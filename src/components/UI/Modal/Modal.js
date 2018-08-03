@@ -29,8 +29,11 @@ class Modal extends Component {
 }
 
 Modal.propTypes = {
-	show: PropTypes.bool,
-	children: PropTypes.object,
+	show: PropTypes.oneOfType([
+		PropTypes.bool,
+		PropTypes.object
+	]),
+	children: PropTypes.node,
 	modalClosed: PropTypes.func.isRequired,
 };
 
