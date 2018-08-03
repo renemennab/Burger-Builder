@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import classes from './Modal.css';
 import Aux from '../../../hoc/Auxiliary';
 import Backdrop from '../Backdrop/Backdrop';
+import PropTypes from 'prop-types';
 
 class Modal extends Component {
 
-	shouldComponentUpdate ( nextProps, nextState ) {
+	shouldComponentUpdate ( nextProps ) {
 		return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
 	}
 
@@ -26,5 +27,11 @@ class Modal extends Component {
 		);
 	}
 }
+
+Modal.propTypes = {
+	show: PropTypes.bool,
+	children: PropTypes.object,
+	modalClosed: PropTypes.func.isRequired,
+};
 
 export default Modal;
