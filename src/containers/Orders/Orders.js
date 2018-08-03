@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
@@ -45,5 +46,12 @@ const mapDispatchToProps = dispatch =>{
 	};
 };
 
+Orders.propTypes = {
+	token: PropTypes.string.isRequired,
+	userId: PropTypes.string,
+	loading: PropTypes.bool.isRequired,
+	orders: PropTypes.array.isRequired,
+	onFetchOrders: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Orders, axios));
