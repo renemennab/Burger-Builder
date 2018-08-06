@@ -33,7 +33,7 @@ export const initIngredients = () => {
 		axios.get( 'https://react-my-burguer-1d842.firebaseio.com/ingredients.json' )
 			.then( response => {
 				dispatch(setIngredients(response.data));
-			} )
+			} ) // eslint-disable-next-line
 			.catch( error => {
 				dispatch(fetchIngredientsFailed());
 			} );
