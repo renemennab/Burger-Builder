@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Layout from './hoc/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
@@ -57,6 +58,11 @@ const mapDispatchToProps = dispatch => {
 	return {
 		onTryAutoSignup: () => dispatch(actions.authCheckState())
 	};
+};
+
+App.propTypes = {
+	onTryAutoSignup: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
