@@ -8,8 +8,7 @@ import Input from '../../components/UI/Input/Input';
 import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
-//import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
-//import Axios from 'axios';
+
 
 class Auth extends Component {
 	state = {
