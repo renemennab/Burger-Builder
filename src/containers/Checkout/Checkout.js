@@ -25,6 +25,7 @@ render () {
 				{purchasedRedirect}
 				<CheckoutSummary
 					ingredients={this.props.ings}
+					price={this.props.price}
 					checkoutCancelled={this.checkoutCancelledHandler}
 					checkoutContinued={this.checkoutContinuedHandler} />
 				<Route 
@@ -40,7 +41,8 @@ render () {
 const mapStateToProps = state => {
 	return {
 		ings: state.burgerBuilder.ingredients,
-		purchased: state.order.purchased
+		purchased: state.order.purchased,
+		price: state.burgerBuilder.totalPrice
 	};
 };
 
@@ -49,6 +51,7 @@ Checkout.propTypes = {
 	history: PropTypes.object.isRequired,
 	purchased: PropTypes.bool.isRequired,
 	match: PropTypes.object.isRequired,
+	price: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Checkout);
