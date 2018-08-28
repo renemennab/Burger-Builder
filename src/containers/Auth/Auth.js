@@ -182,7 +182,7 @@ Auth.propTypes = {
 	onSetAuthRedirectPath: PropTypes.func.isRequired,
 	onAuth: PropTypes.func.isRequired,
 	loading: PropTypes.bool.isRequired,
-	error: PropTypes.bool,
+	error: PropTypes.node,
 	isAuthenticated: PropTypes.bool.isRequired,
 };
 
