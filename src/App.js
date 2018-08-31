@@ -16,25 +16,26 @@ class App extends Component {
 	componentDidMount() {
 		this.props.onTryAutoSignup();
 	}
-
+	
 	render () {
+		const baseUrl = process.env.PUBLIC_URL;
 		let routes = (
 			<Switch>
-				<Route path="/auth" component={Auth} />
-				<Route path="/" exact component={BurgerBuilder} />
-				<Redirect to='/' />
+				<Route path={baseUrl + '/auth'} component={Auth} />
+				<Route path={baseUrl + '/'} exact component={BurgerBuilder} />
+				<Redirect to={baseUrl + '/'} />
 			</Switch>
 		);
 
 		if (this.props.isAuthenticated){
 			routes = (
 				<Switch>
-					<Route path="/checkout" component={Checkout} />
-					<Route path="/auth" component={Auth} />
-					<Route path="/orders" component={Orders} />
-					<Route path="/logout" component={Logout} />
-					<Route path="/" exact component={BurgerBuilder} />
-					<Redirect to='/' />
+					<Route path={baseUrl + '/checkout'} component={Checkout} />
+					<Route path={baseUrl + '/auth'} component={Auth} />
+					<Route path={baseUrl + '/orders'} component={Orders} />
+					<Route path={baseUrl + '/logout'} component={Logout} />
+					<Route path={baseUrl + '/'} exact component={BurgerBuilder} />
+					<Redirect to={baseUrl + '/'} />
 				</Switch>
 			);
 		}
